@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-export default async (_: NextApiRequest, res: NextApiResponse) => {
-  await res.unstable_revalidate("/time/a");
-  res.status(200).json({ revalidate: true });
+export default async (req: NextApiRequest, res: NextApiResponse) => {
+  const id = req.query["id"];
+  await res.unstable_revalidate(`/_time/${id}`);
+  res.status(200).json({ revalidate: id });
 };

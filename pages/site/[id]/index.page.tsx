@@ -8,7 +8,7 @@ export const getStaticPaths: GetStaticPaths = () => ({ paths: [], fallback: "blo
 const Page = (props: Props) => {
   const router = useRouter();
   
-  return <p>{router.query.id}: {props.time}</p>;
+  return <p>{router.locale}{router.query.id}: {props.time}</p>;
 };
 
 export default Page;

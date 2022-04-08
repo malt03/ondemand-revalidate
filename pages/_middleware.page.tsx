@@ -17,7 +17,7 @@ const middleware: NextMiddleware = (req) => {
   }
 
   const url = req.nextUrl.clone();
-  url.pathname = `/site/${hostname}${url.pathname}`;
+  url.pathname = `/ja/site/${hostname}${url.pathname}`;
   
   return NextResponse.rewrite(url);
 };

@@ -4,7 +4,7 @@ const middleware: NextMiddleware = (req) => {
   if (req.headers.get("x-prerender-revalidate") != undefined) return NextResponse.next();
 
   if (req.nextUrl.pathname.startsWith(`/api`)) return NextResponse.next();
-  if (req.nextUrl.pathname.startsWith("/_time")) return new Response(null, { status: 404 });
+  if (req.nextUrl.pathname.startsWith("/_time")) return NextResponse.next();
   
   const hostname = req.headers.get("host");
   if (hostname == undefined) {
